@@ -1,0 +1,771 @@
+\documentclass[]{article}
+ 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amsmath, amsthm}
+\usepackage{amssymb}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+
+%opening
+\title{Математика}
+\author{Денис Коломиец}
+
+\begin{document}
+	\tableofcontents
+	\section{Общие математические сведения}
+	\subsection{$\Rightarrow$}
+	Знак $\Rightarrow$ означает <<следует>>. Например $A\Rightarrow B$ означает из $A$ следует $B$.
+	\subsection{$\Leftrightarrow$}
+	Знак $\Leftrightarrow$ означает <<равносильно>>. Например $A\Leftrightarrow B$ означает из $A$ равносильно $B$. Так же, если $A\Leftrightarrow B$ то это то же самое, $A\Rightarrow B$ и $B\Rightarrow A$.
+	\subsection{Фигурная скобка $\{$}
+	Запись
+	\begin{equation*}
+		\begin{cases}
+			P_1
+			\\
+			P_2
+		\end{cases}
+	\end{equation*}
+	означает, что условия $P_1$ и $P_2$ выполняются одновременно (\textbf{логическое И})
+	\subsection{Квадратная скобка $[$}
+	Запись
+	\begin{equation*}
+		\left[
+		\begin{matrix}
+			P_1
+			\\
+			P_2
+		\end{matrix}
+		\right.
+	\end{equation*}
+	означает, что хотя бы одно из условий $P_1$ или $P_2$ выполняются (\textbf{логическое ИЛИ})
+	\subsection{Декартово произведение}
+	\begin{definition}
+		\textbf{Декартовым произведением} множеств $X$ и $Y$ называется множество всех упорядоченных пар $(x,y)$ где $x\in X, y\in Y$.
+	\end{definition}
+	\textbf{Обозначение}. $X\times Y$
+	\\
+	\\
+	Декартово произведение можно обобщить для $n$ множеств, так, элементами множества $X_1\times X_2\times \ldots X_n$ будут \textbf{упорядоченные наборы} или \textbf{кортежи} $(x_1, x_2, \ldots, x_n)$ где $x_1\in X_1,x_2\in X_2, \ldots, x_n\in X_n$.
+	
+	\begin{definition}
+	\textbf{Декартовой $n$-ой степенью} множества $X$ называется множество $X^n=X\times X\times \ldots X$ 
+	\end{definition}
+	\section{Функция}
+	\subsection{Определение}
+	\begin{definition}
+		\textbf{Функцией, отображением} $f:X\rightarrow Y$ называется множество  упорядоченных пар $(x,y)$ где $x\in X, y\in Y$ такое, что 
+		\begin{enumerate}
+			\item для любого $x$ верно  $(x,y)\in f$; 
+			\item для любых $x_1, x_2$ верно  $f(x_1)=f(x_2)$
+			(функциональность)
+		\end{enumerate}
+		Множество $X$ называется \textbf{областью определения} $f$.
+		Множество $Y$ называется \textbf{областью значений} $f$
+	\end{definition}
+	\textbf{Пример}. Пусть $X=\left\{1,2,3\right\}$ и $Y=\left\{a,b\right\}$, и мы хотим задать отображение $f:X\rightarrow Y$. В первую очередь, для каждого элемента из $X$ нужно указать значение из $Y$ (условие $1$ из определения). Допустим, для $f$ верно
+	\begin{equation}
+	\begin{cases}
+	f(1)=a
+	\\
+	f(2)=a
+	\\
+	f(3)=b.
+\end{cases}
+	\end{equation}
+Тогда, функция $f$ будет следующим множеством:
+\begin{equation}
+	f=\left\{(1,a),(2,a),(3,b)\right\}
+\end{equation}
+
+\textbf{Важно}. Если для любых $x_1, x_2$ верно $f(x_1)=f(x_2)$ (условие 2 из определения), то обратное, не обязательно верно, из того, что $f(1)=f(2)$ не следует, что $1=2$.
+\\
+
+\textbf{Важно}. Если для каждого $x\in X$ обязательно, чтобы $(x,y)\in f$ (условие 1 из определения), то необязательно, чтобы для каждого $y\in Y$ было верно $(x,y)\in f$.
+\\
+
+\textbf{Пример}. Пусть $X=\left\{1,2,3\right\}$ и $Y=\left\{a,b,c,d,e\right\}$, то множество 
+\begin{equation}
+	f=\left\{(1,a),(2,a),(3,b)\right\}
+\end{equation}
+является функцией.
+\\
+	
+	Поскольку не для каждого множества можно выписать его элементы (любые бесконечные множества), возникает необходимость иначе задавать фукнции на таких множествах
+\\
+	
+	\textbf{Пример}. Пусть $f:\mathbb{R}\rightarrow\mathbb{R}$ и $f(x)=2x$.
+	Тогда функция $f$ является следующим множеством 
+	\begin{equation}
+		\left\{(x,2x)\text{ где }x\in\mathbb{R}\right\}
+	\end{equation}
+	то есть множеством всех пар $(x,2x)$ где $x\in\mathbb{R}$.
+	
+	\subsection{Биекции}
+	
+	Отображение переводят одни элементы в другие, по тому же самому принципу они и переводят множества в множества. Пусть
+	
+		\begin{equation}
+		\begin{cases}
+			f(1)=a
+			\\
+			f(2)=a
+			\\
+			f(3)=b.
+		\end{cases}
+	\end{equation}
+	
+	тогда $f(\left\{1,3\right\})=\left\{a,b\right\}$.
+	\\
+	
+	Грубо говоря, если взять множество $A$ и применить к каждому его элементу функцию $f$ и результаты сложить в одном множестве $B$, получим образ множества $f(A)=B$
+	\\
+	
+	Дадим строгое определение
+	
+	\begin{definition}
+		Пусть $f:X\rightarrow Y$ и $A\subset X$. \textbf{Образом} $f(A)$ называется множество \textbf{всех} таких $y\in Y$ что существует $x\in X$ такой, что $$f(x)=y.$$
+	\end{definition}
+	
+	\begin{definition}
+		Функция $f:X\rightarrow Y$ называется \textbf{сюръекцией}, если $f(X) = Y$
+	\end{definition}
+
+	\begin{definition}
+		Функция $f:X\rightarrow Y$ называется \textbf{инъекцией} или \textbf{однозначной}, если для любых $x_1, x_2$ верно, что если $f(x_1)=f(x_2)$ то $x_1=x_2$
+	\end{definition}
+
+	\begin{definition}
+		Если функция \textbf{инъективна} и \textbf{сюръективна}, то она называется \textbf{биективной} или \textbf{взаимно-однозначной}
+	\end{definition}
+	
+	\textbf{Примечание}. Биекция сопостовляет каждому $x$ ровно один $y$ (инъективность) и для каждого $y$ найдется $x$ (сюръективность), притом только один (функциональность).
+	\\
+	\\
+	\subsubsection{Упражнение}
+	\begin{enumerate}
+		\item функциями
+		\item сюръекциями
+		\item инъекциями
+		\item биекциями
+	\end{enumerate} $$f:X\rightarrow Y$$ где $$X=\left\{1,2,3\right\}$$  $$Y=\left\{4,6,7\right\}$$
+	
+	\begin{enumerate}
+		\item $\left\{(1,a),(2,a),(3,b)\right\}$ 
+		\item $\left\{(1,4),(2,7)\right\}$ 
+		\item $\left\{(1,4),(2,1),(3,7)\right\}$ 
+		\item $\left\{(1,4),(2,7),(3,6)\right\}$
+		\item $\left\{(1,4),(2,4),(3,4)\right\}$  
+		\item $\left\{(1,4),(2,6),(3,7),(2,7)\right\}$  
+	\end{enumerate}
+	
+	\subsubsection{Упражнение}
+	Пусть \begin{gather*}
+		f:\mathbb{R}^m\rightarrow\mathbb{R}^n
+		\\
+		g:\mathbb{R}^m\rightarrow\mathbb{R}^n
+	\end{gather*}
+	указать, какие из следующих функций существуют
+	
+	\begin{enumerate}
+		\item $q(x)=af(x)+bg(x)$
+		\item $q(x)=f(g(x))$
+		\item $q(x)=af(x)+bh(x)$
+		\item $q(x)=g(f(x))$
+		\item $q(x)=h(f(x))$
+	\end{enumerate}
+	
+	\section{Линейное пространство $\mathbb{R}^m$}
+	
+	Элементами $\mathbb{R}^m$ являются упорядоченные наборы $n$ вещественных чисел.
+	
+	Пусть \begin{gather*}
+		\overline{x}=(x_1, x_2, \ldots, x_m)\in \mathbb{R}^m 
+		\\
+		\overline{y}=(y_1, y_2, \ldots, y_m)\in \mathbb{R}^m 
+		\\
+		a\in \mathbb{R}
+	\end{gather*}
+	\subsection{Определение}
+	Введем следующие операции над вещественными числами:\begin{enumerate}
+		\item Сумма: $$\overline{x}+\overline{y}=
+		(x_1+y_1, x_2+y_2, \ldots, x_m+y_m)$$
+		\item Умножение на число: $$a\overline{x}=
+		(ax_1, ax_2, \ldots, ax_m)$$
+	\end{enumerate}
+	
+	
+	\subsection{Канонический базис и координаты}
+	\begin{definition}
+		\textbf{Линейной комбинацией} векторов 
+		$$
+		\overline{x_1}, \overline{x_2},\ldots, \overline{x_n}
+		$$
+		с коэффициентами 
+		$$
+		a_1,a_2,\ldots, a_n
+		$$
+		называется вектор $$\overline{x}=a_1\overline{x_1}+ a_2\overline{x_2},\ldots+ a_n\overline{x_n}$$.
+	\end{definition}
+	
+	\begin{definition}
+		\textbf{Каноническим базисом} в $\mathbb{R}^m$ называется упорядоченный набор векторов $(\overline{e_1}, \overline{e_2}, \ldots, \overline{e_m})$ где
+		\begin{gather*}
+			\overline{e_1} = (1,0,\ldots,0)
+			\\
+			\overline{e_2} = (0,1,\ldots,0)
+			\\
+			\ldots
+			\\
+			\overline{e_m} = (0,0,\ldots,1)
+		\end{gather*}
+	\end{definition}
+	Таким образом, у вектора $\overline{e_i}$ в каноническом базисе на $i-$ой коориднате стоит $1$, а на остальных --- $0$.
+	
+	\begin{definition}
+		Говорят, что вектор $\overline{x}$ разложен по каноническому базису, если он представлен в виде линейной комбинации
+		$$\overline{x}=x_1\overline{e_1}+ x_2\overline{e_2},\ldots+ x_n\overline{e_n}.$$
+	\end{definition}
+	\textbf{Пример}.
+	\begin{equation*}
+		(5,3,2) = 5\overline{e_1}+3\overline{e_2}+2\overline{e_3}
+	\end{equation*} 
+	
+	\section{Линейный оператор $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$}
+	\subsection{Определение}
+	\begin{definition}
+		Функция $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$ называется \textbf{линейным оператором} если выполнены два условия \textbf{для любых} $\overline{x}, \overline{y}, a$
+		\begin{enumerate}
+			\item $$f(a\overline{x})=af(\overline{x})$$
+			\item $$f(\overline{x}+\overline{y})=f(\overline{x})+f(\overline{y})$$
+		\end{enumerate}
+	\end{definition}
+	
+	\subsection{Общий вид линейных операторов}
+	\subsubsection{Упражнение}
+	\begin{theorem}
+		\begin{equation}
+			f(a_1\overline{x_1}+ a_2\overline{x_2},\ldots+ a_n\overline{x_n})
+			=
+			a_1f(\overline{x_1})+ a_2f(\overline{x_2})+\ldots+ a_nf(\overline{x_n})
+		\end{equation}
+	\end{theorem}
+	\textbf{Доказательство}. Выполнить самостоятельно.
+	\\
+	\\
+	Исследуем, как выглядят линейные операторы $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$. Пусть $(\overline{e_1}, \overline{e_2}, \ldots, \overline{e_m})$ --- канонический базис, тогда 
+		\begin{equation}\label{eq1}
+			f(\overline{x})=
+	f(x_1\overline{e_1}+ x_2\overline{e_2},\ldots+ x_n\overline{e_n})
+	=
+	x_1f(\overline{e_1})+ x_2f(\overline{e_2})+\ldots+ x_nf(\overline{e_n})
+\end{equation}
+	 Обзначим
+	 \begin{equation}
+	 	\overline{a_i}=
+	 	f(\overline{e_i})=
+	 	\begin{pmatrix}
+	 		a_{1i}
+	 		\\
+	 		a_{2i}
+	 		\\
+	 		\ldots
+	 		\\
+			a_{ni}
+	 	\end{pmatrix}
+	 \end{equation}
+	 $f(\overline{e_i})$ имеет $n$ координат, потому что $f$ переводит $m$-мерные векторы в $n$-мерные векторы. Строки идут от $1$ до $n$ а столбец имеет номер $i$. Преобразуем уравнение (\ref{eq1})
+	 \begin{gather*}
+	 	x_1f(\overline{e_1})+ x_2f(\overline{e_2})+\ldots+ x_nf(\overline{e_n})
+	 	=
+	 	\\
+	 	x_1
+	 	\begin{pmatrix}
+	 		a_{11}
+	 		\\
+	 		a_{21}
+	 		\\
+	 		\ldots
+	 		\\
+	 		a_{n1}
+	 	\end{pmatrix}
+	 	+
+	 	x_2
+	 	\begin{pmatrix}
+	 		a_{12}
+	 		\\
+	 		a_{22}
+	 		\\
+	 		\ldots
+	 		\\
+	 		a_{n2}
+	 	\end{pmatrix}
+	 	+
+x_m
+\begin{pmatrix}
+	a_{1m}
+	\\
+	a_{2m}
+	\\
+	\ldots
+	\\
+	a_{nm}
+\end{pmatrix}
+	 \end{gather*}
+	 Полученные векторы-столбцы пишут подряд, объединяя в матрицу. Далее, введем определение умножение матрицы на вектор так, чтобы 
+	\begin{gather*}
+		x_1
+	\begin{pmatrix}
+		a_{11}
+		\\
+		a_{21}
+		\\
+		\ldots
+		\\
+		a_{n1}
+	\end{pmatrix}
+	+
+	x_2
+	\begin{pmatrix}
+		a_{12}
+		\\
+		a_{22}
+		\\
+		\ldots
+		\\
+		a_{n2}
+	\end{pmatrix}
+	+
+	x_m
+	\begin{pmatrix}
+		a_{1m}
+		\\
+		a_{2m}
+		\\
+		\ldots
+		\\
+		a_{nm}
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		a_{11} & a_{12} & \ldots & a_{1m}
+		\\
+		a_{21} & a_{22} & \ldots & a_{2m}
+		\\
+		\ldots & \ldots & \ddots & \vdots
+		\\
+		a_{n1} & a_{n2} & \ldots & a_{nm}
+	\end{pmatrix}
+	\begin{pmatrix}
+		x_{1}
+		\\
+		x_{2}
+		\\
+		\ldots
+		\\
+		x_{m}
+	\end{pmatrix}
+	=A\overline{x}
+\end{gather*}
+
+\textbf{Важно}. Так же, матрицу $A$ можно записать на как набор векторов-столбцов
+\begin{equation*}
+	A=(\overline{a_1},\overline{a_1},\ldots,\overline{a_m})
+\end{equation*}
+
+Данные рассуждения оформим в качестве теоремы:
+\begin{theorem}\label{th1}
+	Линейные операторы $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$ имеют вид $f(x)=Ax$, где $A$ --- матрица размерности $n\times m$ ($m$ столбцов и $n$ строк). Притом, $i-$ый вектор-столбец $\overline{a_i}$ матрицы $\overline{a_i}=f(\overline{e_i})$.
+\end{theorem}
+
+\subsection{Умножение матриц}
+Пусть \begin{gather*}
+	f:\mathbb{R}^m\rightarrow\mathbb{R}^n
+	\\
+	g:\mathbb{R}^n\rightarrow\mathbb{R}^p
+\end{gather*}
+
+Тогда $h(x)=g(f(x))$ --- линейный оператор.
+
+\begin{enumerate}
+	\item
+	\begin{equation*}
+		h(ax)=g(f(ax))=g(af(x))=ag(f(x))=ah(x)
+	\end{equation*}
+	\item
+\begin{equation*}
+	h(x+y)=g(f(x+y))=g(f(x)+f(y))=g(f(x))+g(f(y))=h(x)+h(y)
+\end{equation*}
+\end{enumerate}
+
+
+Пусть $A=(\overline{a_1},\overline{a_2},\ldots,\overline{a_m})$ --- матрица $f$, $B=(\overline{b_1},\overline{b_2},\ldots,\overline{b_n})$ --- матрица $g$, $C=(\overline{c_1},\overline{c_2},\ldots,\overline{c_m})$ --- матрица $h$. Тогда
+\begin{equation*}
+	\overline{c_i}=h(\overline{e_i})=g(f(\overline{e_i}))=g(\overline{a_1})=B\overline{a_1}
+\end{equation*}
+
+\begin{definition}
+	Полученная в результате матрица оператора $h$ называется \textbf{произведением} матрицы $B$ на $A$.
+\end{definition}
+
+\textbf{Важно}. Чтобы вычислить прозиведение $BA$ нужно последовательно применить матрицу $B$ к столбцам матрицы $A$ и последовательно объединить в матрицу.
+
+\subsubsection{Упражнение}
+Пусть \begin{gather*}
+	f:\mathbb{R}^m\rightarrow\mathbb{R}^n
+	\\
+	g:\mathbb{R}^m\rightarrow\mathbb{R}^n
+\end{gather*}
+доказать что функция $h(x)=af(x)+bg(x)$ --- линейный оператор. Пусть $A=(\overline{a_1},\overline{a_2},\ldots,\overline{a_m})$ --- матрица $f$, $B=(\overline{b_1},\overline{b_2},\ldots,\overline{b_m})$ --- матрица $g$. Найти матрицу оператора $h$.
+
+\section{Системы линейных уравнений (СЛАУ)}
+\subsection{Определение}
+\begin{definition}
+Система следующего вида называется \textbf{системой линейных уравнений (СЛАУ)} относительно переменных $x_1,x_2,\ldots,x_m$. Данная система содержит $n$ уравнение и $m$ переменных.
+\begin{equation*}
+\begin{cases}
+	a_{11}x_1 + a_{12}x_2 + \ldots + a_{1m}x_m=b_1
+	\\
+	a_{21}x_1 + a_{22}x_2 + \ldots + a_{2m}x_m=b_2
+	\\
+	\ldots
+	\\
+	a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nm}x_m=b_n
+\end{cases}
+\end{equation*}
+\end{definition}
+\subsection{Матричное представление}
+
+\begin{gather*}
+	\begin{cases}
+		a_{11}x_1 + a_{12}x_2 + \ldots + a_{1m}x_m=b_1
+		\\
+		a_{21}x_1 + a_{22}x_2 + \ldots + a_{2m}x_m=b_2
+		\\
+		\ldots
+		\\
+		a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nm}x_m=b_n
+	\end{cases}
+	\Leftrightarrow
+	\begin{pmatrix}
+	a_{11}x_1 + a_{12}x_2 + \ldots + a_{1m}x_m
+	\\
+	a_{21}x_1 + a_{22}x_2 + \ldots + a_{2m}x_m
+	\\
+	\ldots
+	\\
+	a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nm}x_m
+\end{pmatrix}
+=
+	\begin{pmatrix}
+	b_1
+	\\
+	b_2
+	\\
+	\ldots
+	\\
+	b_n
+\end{pmatrix}
+\Leftrightarrow
+\\
+\Leftrightarrow
+	\begin{pmatrix}
+	a_{11} & a_{12} & \ldots & a_{1m}
+	\\
+	a_{21} & a_{22} & \ldots & a_{2m}
+	\\
+	\ldots & \ldots & \ddots & \vdots
+	\\
+	a_{n1} & a_{n2} & \ldots & a_{nm}
+\end{pmatrix}
+\begin{pmatrix}
+	x_{1}
+	\\
+	x_{2}
+	\\
+	\ldots
+	\\
+	x_{m}
+\end{pmatrix}
+=
+\begin{pmatrix}
+	b_1
+	\\
+	b_2
+	\\
+	\ldots
+	\\
+	b_n
+\end{pmatrix}
+\Leftrightarrow
+A\overline{x}=\overline{b}
+\end{gather*}
+
+Ранее установлено, что умножение матрицы на вектор --- есть линейный оператор $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$. Отсюда получим теорему
+
+\begin{theorem}
+Решать систему линейных уравнений --- то же самое, что решать уравнение $f(\overline{x})=\overline{b}$, где $\overline{x}\in \mathbb{R}^m,b\in\mathbb{R}^n$ и $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$ --- линейные оператор.
+\end{theorem}
+
+Рассмотрим СЛАУ
+
+\begin{gather*}
+	\begin{pmatrix}
+		a_{11} & a_{12} & \ldots & a_{1m}
+		\\
+		a_{21} & a_{22} & \ldots & a_{2m}
+		\\
+		\ldots & \ldots & \ddots & \vdots
+		\\
+		a_{n1} & a_{n2} & \ldots & a_{nm}
+	\end{pmatrix}
+	\begin{pmatrix}
+		x_{1}
+		\\
+		x_{2}
+		\\
+		\ldots
+		\\
+		x_{m}
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		b_1
+		\\
+		b_2
+		\\
+		\ldots
+		\\
+		b_n
+	\end{pmatrix}
+\end{gather*}
+
+Ей в соответсвтие можно сопоставить матрицу
+
+\begin{gather*}
+	\left(
+	\begin{array}{llll|l}
+		a_{11} & a_{12} & \ldots & a_{1m} & b_{1}
+		\\
+		a_{21} & a_{22} & \ldots & a_{2m} & b_{2} 
+		\\
+		\ldots & \ldots & \ddots & \vdots & \vdots
+		\\
+		a_{n1} & a_{n2} & \ldots & a_{nm} & b_{n}
+	\end{array}
+	\right)
+\end{gather*}
+
+здесь вертикальная черта не несет в себе никакого математического смысла и просто нужна, чтобы визуально отделить матрицу СЛАУ и столбец-решение.
+
+\begin{definition}
+	Пусть дана СЛАУ
+	\begin{equation*}
+			\begin{cases}
+			a_{11}x_1 + a_{12}x_2 + \ldots + a_{1m}x_m=b_1
+			\\
+			a_{21}x_1 + a_{22}x_2 + \ldots + a_{2m}x_m=b_2
+			\\
+			\ldots
+			\\
+			a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nm}x_m=b_n
+		\end{cases}
+	\end{equation*}
+	\textbf{Главная матрица системы}
+	\begin{equation*}
+			\begin{pmatrix}
+			a_{11} & a_{12} & \ldots & a_{1m}
+			\\
+			a_{21} & a_{22} & \ldots & a_{2m}
+			\\
+			\ldots & \ldots & \ddots & \vdots
+			\\
+			a_{n1} & a_{n2} & \ldots & a_{nm}
+		\end{pmatrix}
+	\end{equation*}
+	\textbf{Дополненная матрица системы}
+	\begin{equation*}
+	\left(
+\begin{array}{llll|l}
+	a_{11} & a_{12} & \ldots & a_{1m} & b_{1}
+	\\
+	a_{21} & a_{22} & \ldots & a_{2m} & b_{2} 
+	\\
+	\ldots & \ldots & \ddots & \vdots & \vdots
+	\\
+	a_{n1} & a_{n2} & \ldots & a_{nm} & b_{n}
+\end{array}
+\right)
+\end{equation*}
+\end{definition}
+
+\subsection{Метод гаусса}
+
+\begin{definition}
+	Следующие действия с матрицей называются \textbf{элементарными преобразованиями матрицы}:
+	\begin{enumerate}
+		\item добавление к строке матрицы другой строки;
+		\item умножение строки матрицы на число, отличное от нуля.
+	\end{enumerate}
+	если матрица $B$ получена из $A$ элементарными преобразованиями, то пишут $A\rightarrow B$.
+\end{definition}
+
+\begin{theorem}
+	Пусть $A,B$ --- матрицы и $A\rightarrow B$. Тогда системы $A\overline{x}$ и $B\overline{x}$ равносильны.
+\end{theorem}
+
+\textbf{Пример}. Пусть дана система. 
+\begin{gather*}
+	\begin{cases}
+		x+2y=3
+		\\
+		2x+y=6
+	\end{cases}
+\end{gather*}
+Прибавим к первой строке вторую (это равносильное преобразование)
+\begin{gather*}
+	\begin{cases}
+		x+2y=3
+		\\
+		2x+y=6
+	\end{cases}
+	\Leftrightarrow 
+	\begin{cases}
+		3x+3y=9
+		\\
+		2x+y=6
+	\end{cases}
+\end{gather*}
+Перепишем эти рассуждения в матричном виде
+\begin{gather*}
+	\left(
+	\begin{array}{ll|l}
+		1 & 2 & 3
+		\\
+		2 & 1 & 6
+	\end{array}
+	\right)
+	\rightarrow
+	\left(
+	\begin{array}{ll|l}
+		3 & 3 & 9
+		\\
+		2 & 1 & 6
+	\end{array}
+	\right)
+\end{gather*}
+
+\begin{definition}
+	содержимое...
+\end{definition}
+
+Преобразуем эту матрицу так, чтобы \textbf{главная матрица системы} стала единичной.
+
+\begin{gather*}
+	\left(
+	\begin{array}{ll|l}
+		1 & 2 & 3
+		\\
+		2 & 1 & 6
+	\end{array}
+	\right)
+	\rightarrow
+	\left(
+\begin{array}{ll|l}
+	1 & 2 & 3
+	\\
+	0 & -3 & 0
+\end{array}
+\right)
+\rightarrow
+	\left(
+\begin{array}{ll|l}
+	3 & 6 & 9
+	\\
+	0 & -3 & 0
+\end{array}
+\right)
+\rightarrow
+\\
+\rightarrow
+\left(
+\begin{array}{ll|l}
+	3 & 0 & 9
+	\\
+	0 & -3 & 0
+\end{array}
+\right)
+\rightarrow
+\left(
+\begin{array}{ll|l}
+	1 & 0 & 3
+	\\
+	0 & 1 & 0
+\end{array}
+\right)
+\end{gather*}
+
+По итогу, получаем следующее
+
+\begin{gather*}
+\begin{pmatrix}
+	1 & 0 
+	\\
+	0 & 1 
+\end{pmatrix}
+\begin{pmatrix}
+	x
+	\\
+	y 
+\end{pmatrix}
+=
+\begin{pmatrix}
+	3
+	\\
+	0 
+\end{pmatrix}
+\Leftrightarrow
+\begin{pmatrix}
+	x
+	\\
+	y 
+\end{pmatrix}
+=
+\begin{pmatrix}
+	3
+	\\
+	0 
+\end{pmatrix}
+\Leftrightarrow
+\begin{cases}
+	x=3
+	\\
+	y=0
+\end{cases}
+\end{gather*}
+
+
+\textbf{Важно}. Таким образом, суть метода Гаусса заключается в том, чтобы элементарными преобразованиями сделать из главной матрицы системы единичную.
+
+\textbf{Важно}. Последовательность элементарных преобразований \textbf{зависит} только от \textbf{главной матрицы} и \textbf{ек зависит} от столбца-решения.
+
+\subsubsection{Упражнение}
+Решить СЛАУ \textbf{строго теми же} элементарными преобразованиями, что из примера
+\begin{equation*}
+		\left(
+	\begin{array}{ll|l}
+		1 & 2 & 2
+		\\
+		2 & 1 & 2
+	\end{array}
+	\right)
+\end{equation*}
+
+\section{Матричные уравнения}
+\end{document}
