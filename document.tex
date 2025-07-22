@@ -6,11 +6,22 @@
 \usepackage{amsmath, amsthm}
 \usepackage{amssymb}
 
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Overleaf Example},
+	pdfpagemode=FullScreen,
+}
+
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 
-\newtheorem{definition}{Определение}
-\newtheorem{theorem}{Теорема}
+\newtheorem{dfn}{Определение}
+\newtheorem{thr}{Теорема}
 
 %opening
 \title{Математика}
@@ -46,20 +57,20 @@
 	\end{equation*}
 	означает, что хотя бы одно из условий $P_1$ или $P_2$ выполняются (\textbf{логическое ИЛИ})
 	\subsection{Декартово произведение}
-	\begin{definition}
+	\begin{dfn}
 		\textbf{Декартовым произведением} множеств $X$ и $Y$ называется множество всех упорядоченных пар $(x,y)$ где $x\in X, y\in Y$.
-	\end{definition}
+	\end{dfn}
 	\textbf{Обозначение}. $X\times Y$
 	\\
 	\\
 	Декартово произведение можно обобщить для $n$ множеств, так, элементами множества $X_1\times X_2\times \ldots X_n$ будут \textbf{упорядоченные наборы} или \textbf{кортежи} $(x_1, x_2, \ldots, x_n)$ где $x_1\in X_1,x_2\in X_2, \ldots, x_n\in X_n$.
 	
-	\begin{definition}
+	\begin{dfn}
 	\textbf{Декартовой $n$-ой степенью} множества $X$ называется множество $X^n=X\times X\times \ldots X$ 
-	\end{definition}
+	\end{dfn}
 	\section{Функция}
 	\subsection{Определение}
-	\begin{definition}
+	\begin{dfn}
 		\textbf{Функцией, отображением} $f:X\rightarrow Y$ называется множество  упорядоченных пар $(x,y)$ где $x\in X, y\in Y$ такое, что 
 		\begin{enumerate}
 			\item для любого $x$ верно  $(x,y)\in f$; 
@@ -68,7 +79,7 @@
 		\end{enumerate}
 		Множество $X$ называется \textbf{областью определения} $f$.
 		Множество $Y$ называется \textbf{областью значений} $f$
-	\end{definition}
+	\end{dfn}
 	\textbf{Пример}. Пусть $X=\left\{1,2,3\right\}$ и $Y=\left\{a,b\right\}$, и мы хотим задать отображение $f:X\rightarrow Y$. В первую очередь, для каждого элемента из $X$ нужно указать значение из $Y$ (условие $1$ из определения). Допустим, для $f$ верно
 	\begin{equation}
 	\begin{cases}
@@ -129,21 +140,21 @@
 	
 	Дадим строгое определение
 	
-	\begin{definition}
+	\begin{dfn}
 		Пусть $f:X\rightarrow Y$ и $A\subset X$. \textbf{Образом} $f(A)$ называется множество \textbf{всех} таких $y\in Y$ что существует $x\in X$ такой, что $$f(x)=y.$$
-	\end{definition}
+	\end{dfn}
 	
-	\begin{definition}
+	\begin{dfn}
 		Функция $f:X\rightarrow Y$ называется \textbf{сюръекцией}, если $f(X) = Y$
-	\end{definition}
+	\end{dfn}
 
-	\begin{definition}
+	\begin{dfn}
 		Функция $f:X\rightarrow Y$ называется \textbf{инъекцией} или \textbf{однозначной}, если для любых $x_1, x_2$ верно, что если $f(x_1)=f(x_2)$ то $x_1=x_2$
-	\end{definition}
+	\end{dfn}
 
-	\begin{definition}
+	\begin{dfn}
 		Если функция \textbf{инъективна} и \textbf{сюръективна}, то она называется \textbf{биективной} или \textbf{взаимно-однозначной}
-	\end{definition}
+	\end{dfn}
 	
 	\textbf{Примечание}. Биекция сопостовляет каждому $x$ ровно один $y$ (инъективность) и для каждого $y$ найдется $x$ (сюръективность), притом только один (функциональность).
 	\\
@@ -202,7 +213,7 @@
 	
 	
 	\subsection{Канонический базис и координаты}
-	\begin{definition}
+	\begin{dfn}
 		\textbf{Линейной комбинацией} векторов 
 		$$
 		\overline{x_1}, \overline{x_2},\ldots, \overline{x_n}
@@ -212,9 +223,9 @@
 		a_1,a_2,\ldots, a_n
 		$$
 		называется вектор $$\overline{x}=a_1\overline{x_1}+ a_2\overline{x_2},\ldots+ a_n\overline{x_n}$$.
-	\end{definition}
+	\end{dfn}
 	
-	\begin{definition}
+	\begin{dfn}
 		\textbf{Каноническим базисом} в $\mathbb{R}^m$ называется упорядоченный набор векторов $(\overline{e_1}, \overline{e_2}, \ldots, \overline{e_m})$ где
 		\begin{gather*}
 			\overline{e_1} = (1,0,\ldots,0)
@@ -225,13 +236,13 @@
 			\\
 			\overline{e_m} = (0,0,\ldots,1)
 		\end{gather*}
-	\end{definition}
+	\end{dfn}
 	Таким образом, у вектора $\overline{e_i}$ в каноническом базисе на $i-$ой коориднате стоит $1$, а на остальных --- $0$.
 	
-	\begin{definition}
+	\begin{dfn}
 		Говорят, что вектор $\overline{x}$ разложен по каноническому базису, если он представлен в виде линейной комбинации
 		$$\overline{x}=x_1\overline{e_1}+ x_2\overline{e_2},\ldots+ x_n\overline{e_n}.$$
-	\end{definition}
+	\end{dfn}
 	\textbf{Пример}.
 	\begin{equation*}
 		(5,3,2) = 5\overline{e_1}+3\overline{e_2}+2\overline{e_3}
@@ -239,23 +250,23 @@
 	
 	\section{Линейный оператор $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$}
 	\subsection{Определение}
-	\begin{definition}
+	\begin{dfn}
 		Функция $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$ называется \textbf{линейным оператором} если выполнены два условия \textbf{для любых} $\overline{x}, \overline{y}, a$
 		\begin{enumerate}
 			\item $$f(a\overline{x})=af(\overline{x})$$
 			\item $$f(\overline{x}+\overline{y})=f(\overline{x})+f(\overline{y})$$
 		\end{enumerate}
-	\end{definition}
+	\end{dfn}
 	
 	\subsection{Общий вид линейных операторов}
 	\subsubsection{Упражнение}
-	\begin{theorem}
+	\begin{thr}
 		\begin{equation}
 			f(a_1\overline{x_1}+ a_2\overline{x_2},\ldots+ a_n\overline{x_n})
 			=
 			a_1f(\overline{x_1})+ a_2f(\overline{x_2})+\ldots+ a_nf(\overline{x_n})
 		\end{equation}
-	\end{theorem}
+	\end{thr}
 	\textbf{Доказательство}. Выполнить самостоятельно.
 	\\
 	\\
@@ -380,9 +391,9 @@ x_m
 \end{equation*}
 
 Данные рассуждения оформим в качестве теоремы:
-\begin{theorem}\label{th1}
+\begin{thr}\label{th1}
 	Линейные операторы $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$ имеют вид $f(x)=Ax$, где $A$ --- матрица размерности $n\times m$ ($m$ столбцов и $n$ строк). Притом, $i-$ый вектор-столбец $\overline{a_i}$ матрицы $\overline{a_i}=f(\overline{e_i})$.
-\end{theorem}
+\end{thr}
 
 \subsection{Умножение матриц}
 Пусть \begin{gather*}
@@ -410,9 +421,9 @@ x_m
 	\overline{c_i}=h(\overline{e_i})=g(f(\overline{e_i}))=g(\overline{a_1})=B\overline{a_1}
 \end{equation*}
 
-\begin{definition}
+\begin{dfn}
 	Полученная в результате матрица оператора $h$ называется \textbf{произведением} матрицы $B$ на $A$.
-\end{definition}
+\end{dfn}
 
 \textbf{Важно}. Чтобы вычислить прозиведение $BA$ нужно последовательно применить матрицу $B$ к столбцам матрицы $A$ и последовательно объединить в матрицу.
 
@@ -426,7 +437,7 @@ x_m
 
 \section{Системы линейных уравнений (СЛАУ)}
 \subsection{Определение}
-\begin{definition}
+\begin{dfn}
 Система следующего вида называется \textbf{системой линейных уравнений (СЛАУ)} относительно переменных $x_1,x_2,\ldots,x_m$. Данная система содержит $n$ уравнение и $m$ переменных.
 \begin{equation*}
 \begin{cases}
@@ -439,7 +450,7 @@ x_m
 	a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nm}x_m=b_n
 \end{cases}
 \end{equation*}
-\end{definition}
+\end{dfn}
 \subsection{Матричное представление}
 
 \begin{gather*}
@@ -509,9 +520,9 @@ A\overline{x}=\overline{b}
 
 Ранее установлено, что умножение матрицы на вектор --- есть линейный оператор $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$. Отсюда получим теорему
 
-\begin{theorem}
+\begin{thr}
 Решать систему линейных уравнений --- то же самое, что решать уравнение $f(\overline{x})=\overline{b}$, где $\overline{x}\in \mathbb{R}^m,b\in\mathbb{R}^n$ и $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$ --- линейные оператор.
-\end{theorem}
+\end{thr}
 
 Рассмотрим СЛАУ
 
@@ -564,7 +575,7 @@ A\overline{x}=\overline{b}
 
 здесь вертикальная черта не несет в себе никакого математического смысла и просто нужна, чтобы визуально отделить матрицу СЛАУ и столбец-решение.
 
-\begin{definition}
+\begin{dfn}
 	Пусть дана СЛАУ
 	\begin{equation*}
 			\begin{cases}
@@ -603,22 +614,22 @@ A\overline{x}=\overline{b}
 \end{array}
 \right)
 \end{equation*}
-\end{definition}
+\end{dfn}
 
 \subsection{Метод гаусса}
 
-\begin{definition}
+\begin{dfn}
 	Следующие действия с матрицей называются \textbf{элементарными преобразованиями матрицы}:
 	\begin{enumerate}
 		\item добавление к строке матрицы другой строки;
 		\item умножение строки матрицы на число, отличное от нуля.
 	\end{enumerate}
 	если матрица $B$ получена из $A$ элементарными преобразованиями, то пишут $A\rightarrow B$.
-\end{definition}
+\end{dfn}
 
-\begin{theorem}
+\begin{thr}
 	Пусть $A,B$ --- матрицы и $A\rightarrow B$. Тогда системы $A\overline{x}$ и $B\overline{x}$ равносильны.
-\end{theorem}
+\end{thr}
 
 \textbf{Пример}. Пусть дана система. 
 \begin{gather*}
@@ -660,10 +671,6 @@ A\overline{x}=\overline{b}
 	\end{array}
 	\right)
 \end{gather*}
-
-\begin{definition}
-	содержимое...
-\end{definition}
 
 Преобразуем эту матрицу так, чтобы \textbf{главная матрица системы} стала единичной.
 
@@ -753,7 +760,7 @@ A\overline{x}=\overline{b}
 
 \textbf{Важно}. Таким образом, суть метода Гаусса заключается в том, чтобы элементарными преобразованиями сделать из главной матрицы системы единичную.
 
-\textbf{Важно}. Последовательность элементарных преобразований \textbf{зависит} только от \textbf{главной матрицы} и \textbf{ек зависит} от столбца-решения.
+\textbf{Важно}. Последовательность элементарных преобразований \textbf{зависит} только от \textbf{главной матрицы} и \textbf{не зависит} от столбца-решения.
 
 \subsubsection{Упражнение}
 Решить СЛАУ \textbf{строго теми же} элементарными преобразованиями, что из примера
@@ -768,4 +775,177 @@ A\overline{x}=\overline{b}
 \end{equation*}
 
 \section{Матричные уравнения}
+\subsection{Определение}
+Рассмотрим матричное уравнение 
+
+\begin{equation}
+	AX=B
+\end{equation}
+
+где $A,B$ --- известные матрицы, $X$ --- неизвестная матрица.
+
+\subsection{Пример решения}
+\textbf{Пример}. Решим уравнение 
+\begin{gather*}
+	AX=B
+	\\
+	A=
+	\begin{pmatrix}
+		1 & 2
+		\\
+		2 & 1
+	\end{pmatrix}
+\
+B=
+	\begin{pmatrix}
+	8 & 5 & 5
+	\\
+	7 & 4 & 7
+\end{pmatrix}
+\\
+\begin{pmatrix}
+	1 & 2
+	\\
+	2 & 1
+\end{pmatrix}
+X
+=
+	\begin{pmatrix}
+	8 & 5 & 5
+	\\
+	7 & 4 & 7
+\end{pmatrix}
+\end{gather*}
+Для начала определимся с размерами $X$. По определению произведения матриц, мы будем последовательно применять $A$ к столбцам $X$, то есть число столбцов $X$ совпадает с числом столбцов $B$, их 3. Чтобы матрицу $A$ можно было применить к столбцу, его высота должна совпадать с шириной $A$, её ширина 2. Таким образом, $X$ --- матрица $2\times 3$. Перепишем наше уравнение в следующем виде
+\begin{gather*}
+	\begin{pmatrix}
+		1 & 2
+		\\
+		2 & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+	x_1 & x_2 & x_3
+	\\
+	x_4 & x_5 & x_6
+\end{pmatrix}
+	=
+	\begin{pmatrix}
+		8 & 5 & 5
+		\\
+		7 & 4 & 7
+	\end{pmatrix}
+\end{gather*}
+
+Чтобы решить данную задачу, необходимо решить 3 СЛАУ
+\begin{gather*}
+\begin{pmatrix}
+	1 & 2 
+	\\
+	2 & 1
+\end{pmatrix}
+\begin{pmatrix}
+	x_1
+	\\
+	x_4
+\end{pmatrix}
+=
+\begin{pmatrix}
+	8
+	\\
+	7
+\end{pmatrix}
+\\
+\begin{pmatrix}
+	1 & 2 
+	\\
+	2 & 1
+\end{pmatrix}
+\begin{pmatrix}
+	x_2
+	\\
+	x_5
+\end{pmatrix}
+=
+\begin{pmatrix}
+	5
+	\\
+	4
+\end{pmatrix}
+\\
+\begin{pmatrix}
+	1 & 2 
+	\\
+	2 & 1
+\end{pmatrix}
+\begin{pmatrix}
+	x_3
+	\\
+	x_6
+\end{pmatrix}
+=
+\begin{pmatrix}
+	5
+	\\
+	7
+\end{pmatrix}
+\end{gather*}
+
+Ранее уже обговаривалось, что порядок элементарных преобразований не зависит только от \textbf{главной матрицы}, поэтому эти 3 системы можно описать одной матрицей
+
+\begin{gather*}
+\left(
+\begin{array}{ll|lll}
+	1 & 2 & 8 & 5 & 5
+	\\
+	2 & 1 & 7 & 4 & 7
+\end{array}
+\right)\rightarrow
+\ldots
+\rightarrow
+\left(
+\begin{array}{ll|lll}
+	1 & 0 & 2 & 1 & 3
+	\\
+	0 & 1 & 3 & 2 & 1
+\end{array}
+\right)
+\end{gather*}
+
+В итоге получаем результат
+
+\begin{gather*}
+X=
+\left(
+\begin{matrix}
+	2 & 1 & 3
+	\\
+	3 & 2 & 1
+\end{matrix}\right)
+\end{gather*}
+\subsubsection{Упражнение}
+Решить уравнение
+\begin{gather*}
+	AX=E
+	\\
+	A=
+	\begin{pmatrix}
+		1 & 2
+		\\
+		2 & 1
+	\end{pmatrix}
+	\
+	B=
+	\begin{pmatrix}
+		1 & 0
+		\\
+		0 & 1
+	\end{pmatrix}
+\end{gather*}
+\begin{dfn}
+	Пусть
+	\begin{equation}
+		AX=E
+	\end{equation}
+	тогда матрица $X$ называется \textbf{обратной} к $A$ и обозначается $A^{-1}$
+\end{dfn}
 \end{document}
