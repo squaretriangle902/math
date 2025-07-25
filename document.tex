@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english, russian]{babel}
+
 \usepackage{amsmath, amsthm}
 \usepackage{amssymb}
 
@@ -64,10 +65,17 @@
 	\\
 	\\
 	Декартово произведение можно обобщить для $n$ множеств, так, элементами множества $X_1\times X_2\times \ldots X_n$ будут \textbf{упорядоченные наборы} или \textbf{кортежи} $(x_1, x_2, \ldots, x_n)$ где $x_1\in X_1,x_2\in X_2, \ldots, x_n\in X_n$.
-	
+
 	\begin{dfn}
 	\textbf{Декартовой $n$-ой степенью} множества $X$ называется множество $X^n=X\times X\times \ldots X$ 
 	\end{dfn}
+	
+	\subsection{Закон контрапозиции}
+	
+	Пусть мы имеем утверждение $A\Rightarrow B$, то эквивалентным утверждением будет $\overline{A}\Rightarrow \overline{B}$
+	
+	\textbf{Пример}. сказать: <<фигура $A$ --- квадрат $\Rightarrow$ фигура $B$ --- прямоугольник>> то же самое, что сказать: <<фигура $A$ --- не прямоугольник $\Rightarrow$ фигура $B$ --- не квадрат>>.
+	
 	\section{Функция}
 	\subsection{Определение}
 	\begin{dfn}
@@ -148,6 +156,16 @@
 		Функция $f:X\rightarrow Y$ называется \textbf{сюръекцией}, если $f(X) = Y$
 	\end{dfn}
 
+	\textbf{Пояснение}. Другими словами, $f(X) = Y$ означает, что для каждого $y\in Y$ найдется $x\in X$ такой, $f(x)=y$.
+
+	\begin{dfn}
+	Функция $f:X\rightarrow Y$ называется \textbf{инъекцией} или \textbf{однозначной}, если для любых $x_1, x_2$ верно, что $x_1\not=x_2$ то верно $f(x_1)\not=f(x_2)$
+	\end{dfn}
+
+	\textbf{Пояснение}. На языке хэш-функций можно сказать, что инъективность означает отсутствие коллизий.
+	
+	\textbf{Важно}.Получим \textbf{эквивалентное} определение, применяя закон контрапозиции
+	
 	\begin{dfn}
 		Функция $f:X\rightarrow Y$ называется \textbf{инъекцией} или \textbf{однозначной}, если для любых $x_1, x_2$ верно, что если $f(x_1)=f(x_2)$ то $x_1=x_2$
 	\end{dfn}
@@ -156,15 +174,14 @@
 		Если функция \textbf{инъективна} и \textbf{сюръективна}, то она называется \textbf{биективной} или \textbf{взаимно-однозначной}
 	\end{dfn}
 	
-	\textbf{Примечание}. Биекция сопостовляет каждому $x$ ровно один $y$ (инъективность) и для каждого $y$ найдется $x$ (сюръективность), притом только один (функциональность).
-	\\
-	\\
+	\textbf{Примечание}. Биекция сопостовляет каждому $x$ \textbf{ровно один} $y$ (инъективность) и \textbf{для каждого} $y$ найдется $x$ (сюръективность), притом только один (функциональность).
 	\subsubsection{Упражнение}
+	Указать, какие из следующих множеств являются
 	\begin{enumerate}
-		\item функциями
-		\item сюръекциями
-		\item инъекциями
-		\item биекциями
+		\item функциями;
+		\item сюръекциями;
+		\item инъекциями;
+		\item биекциями.
 	\end{enumerate} $$f:X\rightarrow Y$$ где $$X=\left\{1,2,3\right\}$$  $$Y=\left\{4,6,7\right\}$$
 	
 	\begin{enumerate}
@@ -181,13 +198,15 @@
 		f:\mathbb{R}^m\rightarrow\mathbb{R}^n
 		\\
 		g:\mathbb{R}^m\rightarrow\mathbb{R}^n
+		\\
+		h:\mathbb{R}^n\rightarrow\mathbb{R}^p
 	\end{gather*}
 	указать, какие из следующих функций существуют
 	
 	\begin{enumerate}
-		\item $q(x)=af(x)+bg(x)$
+		\item $q(x)=af(x)+bg(x)\ a,b\in\mathbb{R}$
 		\item $q(x)=f(g(x))$
-		\item $q(x)=af(x)+bh(x)$
+		\item $q(x)=af(x)+bh(x)\ a,b\in\mathbb{R}$
 		\item $q(x)=g(f(x))$
 		\item $q(x)=h(f(x))$
 	\end{enumerate}
@@ -203,6 +222,26 @@
 		\\
 		a\in \mathbb{R}
 	\end{gather*}
+	
+	\begin{thr}
+		\begin{gather*}
+			(x_1, x_2, \ldots, x_m)=(y_1, y_2, \ldots, y_m)\Leftrightarrow
+			\\
+			\Leftrightarrow
+			\begin{cases}
+				x_1=y_1
+				\\
+				x_2=y_2
+				\\
+				x_3=y_3
+				\\
+				\vdots
+				\\
+				x_m=y_m
+			\end{cases}
+		\end{gather*}
+	\end{thr}
+	
 	\subsection{Определение}
 	Введем следующие операции над вещественными числами:\begin{enumerate}
 		\item Сумма: $$\overline{x}+\overline{y}=
@@ -210,7 +249,6 @@
 		\item Умножение на число: $$a\overline{x}=
 		(ax_1, ax_2, \ldots, ax_m)$$
 	\end{enumerate}
-	
 	
 	\subsection{Канонический базис и координаты}
 	\begin{dfn}
@@ -222,7 +260,7 @@
 		$$
 		a_1,a_2,\ldots, a_n
 		$$
-		называется вектор $$\overline{x}=a_1\overline{x_1}+ a_2\overline{x_2},\ldots+ a_n\overline{x_n}$$.
+		называется вектор $$\overline{x}=a_1\overline{x_1}+ a_2\overline{x_2},\ldots+ a_n\overline{x_n}.$$
 	\end{dfn}
 	
 	\begin{dfn}
@@ -237,7 +275,7 @@
 			\overline{e_m} = (0,0,\ldots,1)
 		\end{gather*}
 	\end{dfn}
-	Таким образом, у вектора $\overline{e_i}$ в каноническом базисе на $i-$ой коориднате стоит $1$, а на остальных --- $0$.
+	\textbf{Пояснение}. Таким образом, у вектора $\overline{e_i}$ в каноническом базисе на $i-$ой коориднате стоит $1$, а на остальных --- $0$.
 	
 	\begin{dfn}
 		Говорят, что вектор $\overline{x}$ разложен по каноническому базису, если он представлен в виде линейной комбинации
@@ -259,18 +297,18 @@
 	\end{dfn}
 	
 	\subsection{Общий вид линейных операторов}
-	\subsubsection{Упражнение}
 	\begin{thr}
-		\begin{equation}
+		\begin{equation}\label{th2}
 			f(a_1\overline{x_1}+ a_2\overline{x_2},\ldots+ a_n\overline{x_n})
 			=
 			a_1f(\overline{x_1})+ a_2f(\overline{x_2})+\ldots+ a_nf(\overline{x_n})
 		\end{equation}
 	\end{thr}
-	\textbf{Доказательство}. Выполнить самостоятельно.
+	\subsubsection{Упражнение}
+	Доказать теорему (\ref{th2}).
 	\\
 	\\
-	Исследуем, как выглядят линейные операторы $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$. Пусть $(\overline{e_1}, \overline{e_2}, \ldots, \overline{e_m})$ --- канонический базис, тогда 
+	Исследуем, как выглядят линейные операторы $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$. Пусть $$(\overline{e_1}, \overline{e_2}, \ldots, \overline{e_m})$$ --- канонический базис, тогда 
 		\begin{equation}\label{eq1}
 			f(\overline{x})=
 	f(x_1\overline{e_1}+ x_2\overline{e_2},\ldots+ x_n\overline{e_n})
@@ -416,7 +454,7 @@ x_m
 \end{enumerate}
 
 
-Пусть $A=(\overline{a_1},\overline{a_2},\ldots,\overline{a_m})$ --- матрица $f$, $B=(\overline{b_1},\overline{b_2},\ldots,\overline{b_n})$ --- матрица $g$, $C=(\overline{c_1},\overline{c_2},\ldots,\overline{c_m})$ --- матрица $h$. Тогда
+Пусть $A=(\overline{a_1},\overline{a_2},\ldots,\overline{a_m})$ --- матрица $f$, $B=(\overline{b_1},\overline{b_2},\ldots,\overline{b_n})$ --- матрица $g$, $C=(\overline{c_1},\overline{c_2},\ldots,\overline{c_m})$ --- матрица $h$. Тогда используя теорему (\ref{th1}) получим
 \begin{equation*}
 	\overline{c_i}=h(\overline{e_i})=g(f(\overline{e_i}))=g(\overline{a_1})=B\overline{a_1}
 \end{equation*}
@@ -433,12 +471,12 @@ x_m
 	\\
 	g:\mathbb{R}^m\rightarrow\mathbb{R}^n
 \end{gather*}
-доказать что функция $h(x)=af(x)+bg(x)$ --- линейный оператор. Пусть $A=(\overline{a_1},\overline{a_2},\ldots,\overline{a_m})$ --- матрица $f$, $B=(\overline{b_1},\overline{b_2},\ldots,\overline{b_m})$ --- матрица $g$. Найти матрицу оператора $h$.
+доказать что функция $h(x)=af(x)+bg(x)$ --- линейный оператор. Пусть $A=(\overline{a_1},\overline{a_2},\ldots,\overline{a_m})$ --- матрица $f$, $B=(\overline{b_1},\overline{b_2},\ldots,\overline{b_m})$ --- матрица $g$. Используя теорему (\ref{th1}), найти матрицу оператора $h$.
 
 \section{Системы линейных уравнений (СЛАУ)}
 \subsection{Определение}
 \begin{dfn}
-Система следующего вида называется \textbf{системой линейных уравнений (СЛАУ)} относительно переменных $x_1,x_2,\ldots,x_m$. Данная система содержит $n$ уравнение и $m$ переменных.
+Система следующего вида называется \textbf{системой линейных уравнений (СЛАУ)} относительно переменных $x_1,x_2,\ldots,x_m$. Данная система содержит $n$ уравнений и $m$ переменных.
 \begin{equation*}
 \begin{cases}
 	a_{11}x_1 + a_{12}x_2 + \ldots + a_{1m}x_m=b_1
@@ -463,6 +501,8 @@ x_m
 		\\
 		a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nm}x_m=b_n
 	\end{cases}
+	\Leftrightarrow
+	\\
 	\Leftrightarrow
 	\begin{pmatrix}
 	a_{11}x_1 + a_{12}x_2 + \ldots + a_{1m}x_m
@@ -518,7 +558,7 @@ x_m
 A\overline{x}=\overline{b}
 \end{gather*}
 
-Ранее установлено, что умножение матрицы на вектор --- есть линейный оператор $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$. Отсюда получим теорему
+Ранее установлено, что умножение матрицы на вектор --- есть линейный оператор $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$ (теорема (\ref{th1})). Отсюда получим теорему
 
 \begin{thr}
 Решать систему линейных уравнений --- то же самое, что решать уравнение $f(\overline{x})=\overline{b}$, где $\overline{x}\in \mathbb{R}^m,b\in\mathbb{R}^n$ и $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$ --- линейные оператор.
@@ -573,7 +613,7 @@ A\overline{x}=\overline{b}
 	\right)
 \end{gather*}
 
-здесь вертикальная черта не несет в себе никакого математического смысла и просто нужна, чтобы визуально отделить матрицу СЛАУ и столбец-решение.
+\textbf{Пояснение}. Здесь вертикальная черта не несет в себе никакого математического смысла и просто нужна, чтобы визуально отделить \textbf{главную} матрицу СЛАУ и столбец-решение.
 
 \begin{dfn}
 	Пусть дана СЛАУ
@@ -630,6 +670,8 @@ A\overline{x}=\overline{b}
 \begin{thr}
 	Пусть $A,B$ --- матрицы и $A\rightarrow B$. Тогда системы $A\overline{x}$ и $B\overline{x}$ равносильны.
 \end{thr}
+
+\textbf{Пояснение}. Сложение уравнения с другим уравнением приводит к эквивалентной системе. Умножение уравнения системы на число, отличное от нуля приводит к эквивалентной системе.
 
 \textbf{Пример}. Пусть дана система. 
 \begin{gather*}
@@ -722,6 +764,23 @@ A\overline{x}=\overline{b}
 
 \begin{gather*}
 \begin{pmatrix}
+		1 & 2
+		\\
+		2 & 1
+\end{pmatrix}
+\begin{pmatrix}
+	x
+	\\
+	y 
+\end{pmatrix}
+=
+\begin{pmatrix}
+	3
+	\\
+	6 
+\end{pmatrix}
+\Leftrightarrow
+\begin{pmatrix}
 	1 & 0 
 	\\
 	0 & 1 
@@ -737,6 +796,8 @@ A\overline{x}=\overline{b}
 	\\
 	0 
 \end{pmatrix}
+\Leftrightarrow
+\\
 \Leftrightarrow
 \begin{pmatrix}
 	x
@@ -890,7 +951,7 @@ X
 \end{pmatrix}
 \end{gather*}
 
-Ранее уже обговаривалось, что порядок элементарных преобразований не зависит только от \textbf{главной матрицы}, поэтому эти 3 системы можно описать одной матрицей
+Ранее уже обговаривалось, что порядок элементарных преобразований зависит только от \textbf{главной матрицы}, поэтому эти 3 системы можно описать одной матрицей, справа от черты размещены все столбцы-решения
 
 \begin{gather*}
 \left(
