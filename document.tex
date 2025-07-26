@@ -21,14 +21,21 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 
-\newtheorem{dfn}{Определение}
+\theoremstyle{theorem}
 \newtheorem{thr}{Теорема}
+\newtheorem{dfn}{Определение}
+\theoremstyle{definition}
+\newtheorem{sg}{Обозначение}[dfn]
+\newtheorem{ex}{Пример}
+\newtheorem{tk}{Упраженение}
+\newtheorem*{nt}{Примечание}
 
 %opening
-\title{Математика}
-\author{Денис Коломиец}
+\title{ЛИНЕЙНАЯ АЛГЕБРА}
+\author{Д. В. КОЛОМИЕЦ}
 
 \begin{document}
+	\maketitle
 	\tableofcontents
 	\section{Общие математические сведения}
 	\subsection{$\Rightarrow$}
@@ -61,9 +68,9 @@
 	\begin{dfn}
 		\textbf{Декартовым произведением} множеств $X$ и $Y$ называется множество всех упорядоченных пар $(x,y)$ где $x\in X, y\in Y$.
 	\end{dfn}
-	\textbf{Обозначение}. $X\times Y$
-	\\
-	\\
+	\begin{sg}
+		$X\times Y$
+	\end{sg}
 	Декартово произведение можно обобщить для $n$ множеств, так, элементами множества $X_1\times X_2\times \ldots X_n$ будут \textbf{упорядоченные наборы} или \textbf{кортежи} $(x_1, x_2, \ldots, x_n)$ где $x_1\in X_1,x_2\in X_2, \ldots, x_n\in X_n$.
 
 	\begin{dfn}
@@ -74,7 +81,9 @@
 	
 	Пусть мы имеем утверждение $A\Rightarrow B$, то эквивалентным утверждением будет $\overline{A}\Rightarrow \overline{B}$
 	
-	\textbf{Пример}. сказать: <<фигура $A$ --- квадрат $\Rightarrow$ фигура $B$ --- прямоугольник>> то же самое, что сказать: <<фигура $A$ --- не прямоугольник $\Rightarrow$ фигура $B$ --- не квадрат>>.
+	\begin{ex}
+		Сказать: <<фигура $A$ --- квадрат $\Rightarrow$ фигура $B$ --- прямоугольник>> то же самое, что сказать: <<фигура $A$ --- не прямоугольник $\Rightarrow$ фигура $B$ --- не квадрат>>
+	\end{ex}.
 	
 	\section{Функция}
 	\subsection{Определение}
@@ -88,7 +97,8 @@
 		Множество $X$ называется \textbf{областью определения} $f$.
 		Множество $Y$ называется \textbf{областью значений} $f$
 	\end{dfn}
-	\textbf{Пример}. Пусть $X=\left\{1,2,3\right\}$ и $Y=\left\{a,b\right\}$, и мы хотим задать отображение $f:X\rightarrow Y$. В первую очередь, для каждого элемента из $X$ нужно указать значение из $Y$ (условие $1$ из определения). Допустим, для $f$ верно
+	\begin{ex}
+		Пусть $X=\left\{1,2,3\right\}$ и $Y=\left\{a,b\right\}$, и мы хотим задать отображение $f:X\rightarrow Y$. В первую очередь, для каждого элемента из $X$ нужно указать значение из $Y$ (условие $1$ из определения). Допустим, для $f$ верно
 	\begin{equation}
 	\begin{cases}
 	f(1)=a
@@ -98,37 +108,43 @@
 	f(3)=b.
 \end{cases}
 	\end{equation}
-Тогда, функция $f$ будет следующим множеством:
+тогда, функция $f$ будет следующим множеством:
 \begin{equation}
 	f=\left\{(1,a),(2,a),(3,b)\right\}
 \end{equation}
+	\end{ex}
 
-\textbf{Важно}. Если для любых $x_1, x_2$ верно $f(x_1)=f(x_2)$ (условие 2 из определения), то обратное, не обязательно верно, из того, что $f(1)=f(2)$ не следует, что $1=2$.
-\\
+\begin{nt}
+	Если для любых $x_1, x_2$ верно $f(x_1)=f(x_2)$ (условие 2 из определения), то обратное, не обязательно верно, из того, что $f(1)=f(2)$ не следует, что $1=2$.
+\end{nt}
 
-\textbf{Важно}. Если для каждого $x\in X$ обязательно, чтобы $(x,y)\in f$ (условие 1 из определения), то необязательно, чтобы для каждого $y\in Y$ было верно $(x,y)\in f$.
-\\
+\begin{nt}
+	Если для каждого $x\in X$ обязательно, чтобы $(x,y)\in f$ (условие 1 из определения), то необязательно, чтобы для каждого $y\in Y$ было верно $(x,y)\in f$.
+\end{nt}
 
-\textbf{Пример}. Пусть $X=\left\{1,2,3\right\}$ и $Y=\left\{a,b,c,d,e\right\}$, то множество 
+\begin{ex}
+	Пусть $X=\left\{1,2,3\right\}$ и $Y=\left\{a,b,c,d,e\right\}$, то множество 
 \begin{equation}
 	f=\left\{(1,a),(2,a),(3,b)\right\}
 \end{equation}
 является функцией.
-\\
+\end{ex}
 	
 	Поскольку не для каждого множества можно выписать его элементы (любые бесконечные множества), возникает необходимость иначе задавать фукнции на таких множествах
-\\
 	
-	\textbf{Пример}. Пусть $f:\mathbb{R}\rightarrow\mathbb{R}$ и $f(x)=2x$.
+	\begin{ex}
+		Пусть $f:\mathbb{R}\rightarrow\mathbb{R}$ и $f(x)=2x$.
 	Тогда функция $f$ является следующим множеством 
 	\begin{equation}
 		\left\{(x,2x)\text{ где }x\in\mathbb{R}\right\}
 	\end{equation}
 	то есть множеством всех пар $(x,2x)$ где $x\in\mathbb{R}$.
+	\end{ex}
 	
 	\subsection{Биекции}
 	
-	Отображение переводят одни элементы в другие, по тому же самому принципу они и переводят множества в множества. Пусть
+	Отображение переводят одни элементы в другие, по тому же самому принципу они и переводят множества в множества. \begin{ex}
+		Пусть
 	
 		\begin{equation}
 		\begin{cases}
@@ -141,9 +157,9 @@
 	\end{equation}
 	
 	тогда $f(\left\{1,3\right\})=\left\{a,b\right\}$.
-	\\
+	\end{ex}
 	
-	Грубо говоря, если взять множество $A$ и применить к каждому его элементу функцию $f$ и результаты сложить в одном множестве $B$, получим образ множества $f(A)=B$
+	Грубо говоря, если взять множество $A$ и применить к каждому его элементу функцию $f$ и результаты сложить в одном множестве $B$, получим образ множества $f(A)=B.$
 	\\
 	
 	Дадим строгое определение
@@ -156,15 +172,19 @@
 		Функция $f:X\rightarrow Y$ называется \textbf{сюръекцией}, если $f(X) = Y$
 	\end{dfn}
 
-	\textbf{Пояснение}. Другими словами, $f(X) = Y$ означает, что для каждого $y\in Y$ найдется $x\in X$ такой, $f(x)=y$.
+	\begin{nt}
+		Другими словами, $f(X) = Y$ означает, что для каждого $y\in Y$ найдется $x\in X$ такой, $f(x)=y$.
+	\end{nt}
 
 	\begin{dfn}
 	Функция $f:X\rightarrow Y$ называется \textbf{инъекцией} или \textbf{однозначной}, если для любых $x_1, x_2$ верно, что $x_1\not=x_2$ то верно $f(x_1)\not=f(x_2)$
 	\end{dfn}
 
-	\textbf{Пояснение}. На языке хэш-функций можно сказать, что инъективность означает отсутствие коллизий.
+	\begin{nt}
+		На языке хэш-функций можно сказать, что инъективность означает отсутствие коллизий.
+	\end{nt}
 	
-	\textbf{Важно}.Получим \textbf{эквивалентное} определение, применяя закон контрапозиции
+	Получим \textbf{эквивалентное} определение, применяя закон контрапозиции.
 	
 	\begin{dfn}
 		Функция $f:X\rightarrow Y$ называется \textbf{инъекцией} или \textbf{однозначной}, если для любых $x_1, x_2$ верно, что если $f(x_1)=f(x_2)$ то $x_1=x_2$
@@ -174,9 +194,12 @@
 		Если функция \textbf{инъективна} и \textbf{сюръективна}, то она называется \textbf{биективной} или \textbf{взаимно-однозначной}
 	\end{dfn}
 	
-	\textbf{Примечание}. Биекция сопостовляет каждому $x$ \textbf{ровно один} $y$ (инъективность) и \textbf{для каждого} $y$ найдется $x$ (сюръективность), притом только один (функциональность).
-	\subsubsection{Упражнение}
-	Указать, какие из следующих множеств являются
+	\begin{nt}
+		Биекция сопостовляет каждому $x$ \textbf{ровно один} $y$ (инъективность) и \textbf{для каждого} $y$ найдется $x$ (сюръективность), притом только один (функциональность).
+	\end{nt}
+	\subsection{Упражнения}
+\begin{tk}
+		Указать, какие из следующих множеств являются
 	\begin{enumerate}
 		\item функциями;
 		\item сюръекциями;
@@ -192,9 +215,10 @@
 		\item $\left\{(1,4),(2,4),(3,4)\right\}$  
 		\item $\left\{(1,4),(2,6),(3,7),(2,7)\right\}$  
 	\end{enumerate}
-	
-	\subsubsection{Упражнение}
-	Пусть \begin{gather*}
+\end{tk}
+
+\begin{tk}
+		Пусть \begin{gather*}
 		f:\mathbb{R}^m\rightarrow\mathbb{R}^n
 		\\
 		g:\mathbb{R}^m\rightarrow\mathbb{R}^n
@@ -210,12 +234,13 @@
 		\item $q(x)=g(f(x))$
 		\item $q(x)=h(f(x))$
 	\end{enumerate}
+\end{tk}
 	
-	\section{Линейное пространство $\mathbb{R}^m$}
+	\section{Линейное пространство $\mathbb{R}^m$}\label{sc1}
 	
 	Элементами $\mathbb{R}^m$ являются упорядоченные наборы $n$ вещественных чисел.
 	
-	Пусть \begin{gather*}
+	Пусть в рамках главы \begin{gather*}
 		\overline{x}=(x_1, x_2, \ldots, x_m)\in \mathbb{R}^m 
 		\\
 		\overline{y}=(y_1, y_2, \ldots, y_m)\in \mathbb{R}^m 
@@ -251,7 +276,7 @@
 	\end{enumerate}
 	
 	\subsection{Канонический базис и координаты}
-	\begin{dfn}
+	\begin{dfn}\label{df1}
 		\textbf{Линейной комбинацией} векторов 
 		$$
 		\overline{x_1}, \overline{x_2},\ldots, \overline{x_n}
@@ -286,6 +311,13 @@
 		(5,3,2) = 5\overline{e_1}+3\overline{e_2}+2\overline{e_3}
 	\end{equation*} 
 	
+	\begin{tk}
+		Вычислить
+		\begin{equation*}
+			3(\overline{e_1}+\overline{e_2})+4(\overline{e_2}+\overline{e_3})
+		\end{equation*}
+	\end{tk}
+	
 	\section{Линейный оператор $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$}
 	\subsection{Определение}
 	\begin{dfn}
@@ -297,17 +329,14 @@
 	\end{dfn}
 	
 	\subsection{Общий вид линейных операторов}
-	\begin{thr}
-		\begin{equation}\label{th2}
+	\begin{thr}\label{th2}
+		\begin{equation}
 			f(a_1\overline{x_1}+ a_2\overline{x_2},\ldots+ a_n\overline{x_n})
 			=
 			a_1f(\overline{x_1})+ a_2f(\overline{x_2})+\ldots+ a_nf(\overline{x_n})
 		\end{equation}
 	\end{thr}
-	\subsubsection{Упражнение}
-	Доказать теорему (\ref{th2}).
-	\\
-	\\
+
 	Исследуем, как выглядят линейные операторы $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$. Пусть $$(\overline{e_1}, \overline{e_2}, \ldots, \overline{e_m})$$ --- канонический базис, тогда 
 		\begin{equation}\label{eq1}
 			f(\overline{x})=
@@ -368,14 +397,15 @@ x_m
 \end{pmatrix}
 	 \end{gather*}
 	 Полученные векторы-столбцы пишут подряд, объединяя в матрицу. Далее, введем определение умножение матрицы на вектор так, чтобы 
-	\begin{gather*}
+\begin{dfn}
+		\begin{gather*}
 		x_1
 	\begin{pmatrix}
 		a_{11}
 		\\
 		a_{21}
 		\\
-		\ldots
+		\vdots
 		\\
 		a_{n1}
 	\end{pmatrix}
@@ -386,7 +416,7 @@ x_m
 		\\
 		a_{22}
 		\\
-		\ldots
+		\vdots
 		\\
 		a_{n2}
 	\end{pmatrix}
@@ -397,7 +427,7 @@ x_m
 		\\
 		a_{2m}
 		\\
-		\ldots
+		\vdots
 		\\
 		a_{nm}
 	\end{pmatrix}
@@ -407,7 +437,7 @@ x_m
 		\\
 		a_{21} & a_{22} & \ldots & a_{2m}
 		\\
-		\ldots & \ldots & \ddots & \vdots
+		\vdots & \vdots & \ddots & \vdots
 		\\
 		a_{n1} & a_{n2} & \ldots & a_{nm}
 	\end{pmatrix}
@@ -416,19 +446,23 @@ x_m
 		\\
 		x_{2}
 		\\
-		\ldots
+		\vdots
 		\\
 		x_{m}
 	\end{pmatrix}
-	=A\overline{x}
 \end{gather*}
+\end{dfn}
 
-\textbf{Важно}. Так же, матрицу $A$ можно записать на как набор векторов-столбцов
+
+
+\begin{nt}
+	Так же, матрицу $A$ можно записать на как набор векторов-столбцов
 \begin{equation*}
 	A=(\overline{a_1},\overline{a_1},\ldots,\overline{a_m})
 \end{equation*}
+\end{nt}
 
-Данные рассуждения оформим в качестве теоремы:
+Данные рассуждения оформим в качестве теоремы.
 \begin{thr}\label{th1}
 	Линейные операторы $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$ имеют вид $f(x)=Ax$, где $A$ --- матрица размерности $n\times m$ ($m$ столбцов и $n$ строк). Притом, $i-$ый вектор-столбец $\overline{a_i}$ матрицы $\overline{a_i}=f(\overline{e_i})$.
 \end{thr}
@@ -454,7 +488,18 @@ x_m
 \end{enumerate}
 
 
-Пусть $A=(\overline{a_1},\overline{a_2},\ldots,\overline{a_m})$ --- матрица $f$, $B=(\overline{b_1},\overline{b_2},\ldots,\overline{b_n})$ --- матрица $g$, $C=(\overline{c_1},\overline{c_2},\ldots,\overline{c_m})$ --- матрица $h$. Тогда используя теорему (\ref{th1}) получим
+Пусть 
+\begin{equation*}
+	A=(\overline{a_1},\overline{a_2},\ldots,\overline{a_m})
+\end{equation*} --- матрица $f$, 
+
+\begin{equation*}
+	B=(\overline{b_1},\overline{b_2},\ldots,\overline{b_n})
+\end{equation*} --- матрица $g$, 
+
+\begin{equation*}
+	C=(\overline{c_1},\overline{c_2},\ldots,\overline{c_m})
+\end{equation*} --- матрица $h$. Тогда используя теорему (\ref{th1}) получим
 \begin{equation*}
 	\overline{c_i}=h(\overline{e_i})=g(f(\overline{e_i}))=g(\overline{a_1})=B\overline{a_1}
 \end{equation*}
@@ -463,15 +508,189 @@ x_m
 	Полученная в результате матрица оператора $h$ называется \textbf{произведением} матрицы $B$ на $A$.
 \end{dfn}
 
-\textbf{Важно}. Чтобы вычислить прозиведение $BA$ нужно последовательно применить матрицу $B$ к столбцам матрицы $A$ и последовательно объединить в матрицу.
+\begin{nt}
+	Чтобы вычислить произведение $BA$ нужно последовательно применить матрицу $B$ к столбцам матрицы $A$ и последовательно объединить в матрицу.
+\end{nt}
 
-\subsubsection{Упражнение}
-Пусть \begin{gather*}
+\begin{nt}
+	Произведение матриц в общем случае \textbf{некоммутативно}, т.е. $BA\not=AB$.
+\end{nt}
+
+\begin{ex}
+	Вычислим. Обозначим левую матрицу $B$, правую --- $A.$ 
+	\begin{equation*}
+\begin{pmatrix}
+	2&3&1&5\\
+	4&3&2&3\\
+	1&1&2&2
+\end{pmatrix}
+\begin{pmatrix}
+	1&2\\
+	3&1\\
+	2&1\\
+	2&2
+\end{pmatrix}
+=
+X
+	\end{equation*}
+	
+Вычислим первый столбец $X$, применим $B$ к первому столбцу $A$
+
+\begin{equation*}
+\begin{gathered}
+		\begin{pmatrix}
+		2&3&1&5\\
+		4&3&2&3\\
+		1&1&2&2
+	\end{pmatrix}
+	\begin{pmatrix}
+		1\\
+		3\\
+		2\\
+		2
+	\end{pmatrix}
+	=
+	1
+	\cdot
+	\begin{pmatrix}
+		2\\
+		4\\
+		1
+	\end{pmatrix}
+	+
+	3
+	\cdot
+\begin{pmatrix}
+	3\\
+	3\\
+	1
+\end{pmatrix}
++
+	2
+	\cdot
+\begin{pmatrix}
+	1\\
+	2\\
+	2
+\end{pmatrix}
++
+	2
+	\cdot
+\begin{pmatrix}
+	5\\
+	3\\
+	2
+\end{pmatrix}
+=
+\\
+=
+\begin{pmatrix}
+	23\\
+	23\\
+	12
+\end{pmatrix}
+\end{gathered}
+\end{equation*}
+
+Вычислим второй столбец $X$, применим $B$ ко второму столбцу $A$
+
+\begin{equation*}
+	\begin{gathered}
+		\begin{pmatrix}
+			2&3&1&5\\
+			4&3&2&3\\
+			1&1&2&2
+		\end{pmatrix}
+		\begin{pmatrix}
+			2\\
+			1\\
+			1\\
+			2
+		\end{pmatrix}
+		=
+		2
+		\cdot
+		\begin{pmatrix}
+			2\\
+			4\\
+			1
+		\end{pmatrix}
+		+
+		1
+		\cdot
+		\begin{pmatrix}
+			3\\
+			3\\
+			1
+		\end{pmatrix}
+		+
+		1
+		\cdot
+		\begin{pmatrix}
+			1\\
+			2\\
+			2
+		\end{pmatrix}
+		+
+		2
+		\cdot
+		\begin{pmatrix}
+			5\\
+			3\\
+			2
+		\end{pmatrix}
+		=
+		\\
+		=
+		\begin{pmatrix}
+			18\\
+			19\\
+			9
+		\end{pmatrix}
+	\end{gathered}
+\end{equation*}
+
+Получаем в итоге
+
+\begin{equation*}
+	X
+	=
+\begin{pmatrix}
+	23&18\\
+	23&19\\
+	12&9
+\end{pmatrix}
+\end{equation*}
+\end{ex}
+
+\subsection{Упражнения}
+
+\begin{tk}
+	Доказать теорему (\ref{th2}).
+\end{tk}
+
+\begin{tk}
+	Пусть \begin{gather*}
 	f:\mathbb{R}^m\rightarrow\mathbb{R}^n
 	\\
 	g:\mathbb{R}^m\rightarrow\mathbb{R}^n
 \end{gather*}
-доказать что функция $h(x)=af(x)+bg(x)$ --- линейный оператор. Пусть $A=(\overline{a_1},\overline{a_2},\ldots,\overline{a_m})$ --- матрица $f$, $B=(\overline{b_1},\overline{b_2},\ldots,\overline{b_m})$ --- матрица $g$. Используя теорему (\ref{th1}), найти матрицу оператора $h$.
+доказать что функция 
+\begin{equation*}
+	h(x)=af(x)+bg(x)
+\end{equation*} --- линейный оператор. 
+\end{tk}
+
+\begin{tk}
+	Пусть 
+\begin{equation*}
+	A=(\overline{a_1},\overline{a_2},\ldots,\overline{a_m})
+\end{equation*} --- матрица $f$, 
+
+\begin{equation*}
+	B=(\overline{b_1},\overline{b_2},\ldots,\overline{b_n})
+\end{equation*} --- матрица $g$, используя теорему (\ref{th1}), найти матрицу оператора $h$.
+\end{tk}
 
 \section{Системы линейных уравнений (СЛАУ)}
 \subsection{Определение}
@@ -497,7 +716,7 @@ x_m
 		\\
 		a_{21}x_1 + a_{22}x_2 + \ldots + a_{2m}x_m=b_2
 		\\
-		\ldots
+		\vdots
 		\\
 		a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nm}x_m=b_n
 	\end{cases}
@@ -509,7 +728,7 @@ x_m
 	\\
 	a_{21}x_1 + a_{22}x_2 + \ldots + a_{2m}x_m
 	\\
-	\ldots
+	\vdots
 	\\
 	a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nm}x_m
 \end{pmatrix}
@@ -519,7 +738,7 @@ x_m
 	\\
 	b_2
 	\\
-	\ldots
+	\vdots
 	\\
 	b_n
 \end{pmatrix}
@@ -531,7 +750,7 @@ x_m
 	\\
 	a_{21} & a_{22} & \ldots & a_{2m}
 	\\
-	\ldots & \ldots & \ddots & \vdots
+	\vdots & \vdots & \ddots & \vdots
 	\\
 	a_{n1} & a_{n2} & \ldots & a_{nm}
 \end{pmatrix}
@@ -540,7 +759,7 @@ x_m
 	\\
 	x_{2}
 	\\
-	\ldots
+	\vdots
 	\\
 	x_{m}
 \end{pmatrix}
@@ -550,7 +769,7 @@ x_m
 	\\
 	b_2
 	\\
-	\ldots
+	\vdots
 	\\
 	b_n
 \end{pmatrix}
@@ -558,7 +777,7 @@ x_m
 A\overline{x}=\overline{b}
 \end{gather*}
 
-Ранее установлено, что умножение матрицы на вектор --- есть линейный оператор $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$ (теорема (\ref{th1})). Отсюда получим теорему
+Ранее установлено, что умножение матрицы на вектор --- есть линейный оператор $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$, см. теорема (\ref{th1}). Отсюда получим теорему
 
 \begin{thr}
 Решать систему линейных уравнений --- то же самое, что решать уравнение $f(\overline{x})=\overline{b}$, где $\overline{x}\in \mathbb{R}^m,b\in\mathbb{R}^n$ и $f:\mathbb{R}^m\rightarrow\mathbb{R}^n$ --- линейные оператор.
@@ -572,7 +791,7 @@ A\overline{x}=\overline{b}
 		\\
 		a_{21} & a_{22} & \ldots & a_{2m}
 		\\
-		\ldots & \ldots & \ddots & \vdots
+		\vdots & \vdots & \ddots & \vdots
 		\\
 		a_{n1} & a_{n2} & \ldots & a_{nm}
 	\end{pmatrix}
@@ -581,7 +800,7 @@ A\overline{x}=\overline{b}
 		\\
 		x_{2}
 		\\
-		\ldots
+		\vdots
 		\\
 		x_{m}
 	\end{pmatrix}
@@ -591,7 +810,7 @@ A\overline{x}=\overline{b}
 		\\
 		b_2
 		\\
-		\ldots
+		\vdots
 		\\
 		b_n
 	\end{pmatrix}
@@ -613,7 +832,9 @@ A\overline{x}=\overline{b}
 	\right)
 \end{gather*}
 
-\textbf{Пояснение}. Здесь вертикальная черта не несет в себе никакого математического смысла и просто нужна, чтобы визуально отделить \textbf{главную} матрицу СЛАУ и столбец-решение.
+\begin{nt}
+	Здесь вертикальная черта не несет в себе никакого математического смысла и просто нужна, чтобы визуально отделить \textbf{главную} матрицу СЛАУ и столбец-решение.
+\end{nt}
 
 \begin{dfn}
 	Пусть дана СЛАУ
@@ -671,9 +892,12 @@ A\overline{x}=\overline{b}
 	Пусть $A,B$ --- матрицы и $A\rightarrow B$. Тогда системы $A\overline{x}$ и $B\overline{x}$ равносильны.
 \end{thr}
 
-\textbf{Пояснение}. Сложение уравнения с другим уравнением приводит к эквивалентной системе. Умножение уравнения системы на число, отличное от нуля приводит к эквивалентной системе.
+\begin{nt}
+	Сложение уравнения с другим уравнением приводит к эквивалентной системе. Умножение уравнения системы на число, отличное от нуля приводит к эквивалентной системе.
+\end{nt}
 
-\textbf{Пример}. Пусть дана система. 
+\begin{ex}\label{ex1}
+	Пусть дана система. 
 \begin{gather*}
 	\begin{cases}
 		x+2y=3
@@ -817,14 +1041,20 @@ A\overline{x}=\overline{b}
 	y=0
 \end{cases}
 \end{gather*}
+\end{ex}
 
+\begin{nt}
+	Таким образом, суть метода Гаусса заключается в том, чтобы элементарными преобразованиями сделать из главной матрицы системы единичную.
+\end{nt}
 
-\textbf{Важно}. Таким образом, суть метода Гаусса заключается в том, чтобы элементарными преобразованиями сделать из главной матрицы системы единичную.
+\begin{nt}
+	Последовательность элементарных преобразований \textbf{зависит} только от \textbf{главной матрицы} и \textbf{не зависит} от столбца-решения.
+\end{nt}
 
-\textbf{Важно}. Последовательность элементарных преобразований \textbf{зависит} только от \textbf{главной матрицы} и \textbf{не зависит} от столбца-решения.
-
-\subsubsection{Упражнение}
-Решить СЛАУ \textbf{строго теми же} элементарными преобразованиями, что из примера
+\subsection{Упражнения}
+\begin{tk}
+	Решить СЛАУ \textbf{строго теми же} элементарными преобразованиями, что из примера (\ref{ex1}).
+\end{tk}
 \begin{equation*}
 		\left(
 	\begin{array}{ll|l}
@@ -840,13 +1070,14 @@ A\overline{x}=\overline{b}
 Рассмотрим матричное уравнение 
 
 \begin{equation}
-	AX=B
+	AX=B,
 \end{equation}
 
 где $A,B$ --- известные матрицы, $X$ --- неизвестная матрица.
 
 \subsection{Пример решения}
-\textbf{Пример}. Решим уравнение 
+\begin{ex}
+	Решим уравнение 
 \begin{gather*}
 	AX=B
 	\\
@@ -983,8 +1214,10 @@ X=
 	3 & 2 & 1
 \end{matrix}\right)
 \end{gather*}
-\subsubsection{Упражнение}
-Решить уравнение
+\end{ex}
+\subsection{Упражнения}
+\begin{tk}
+	Решить уравнение
 \begin{gather*}
 	AX=E
 	\\
@@ -1002,6 +1235,7 @@ X=
 		0 & 1
 	\end{pmatrix}
 \end{gather*}
+\end{tk}
 \begin{dfn}
 	Пусть
 	\begin{equation}
@@ -1009,4 +1243,355 @@ X=
 	\end{equation}
 	тогда матрица $X$ называется \textbf{обратной} к $A$ и обозначается $A^{-1}$
 \end{dfn}
+\section{Базис}
+\subsection{Линейная зависимость}
+Рассмотрим векторы
+\begin{gather}\label{eq2}
+	a=
+	\begin{pmatrix}
+		1
+		\\
+		2
+	\end{pmatrix}
+	\
+	b=
+	\begin{pmatrix}
+		1
+		\\
+		2
+	\end{pmatrix}
+	\
+	c=
+	\begin{pmatrix}
+		11
+		\\
+		7
+	\end{pmatrix}
+\end{gather}
+
+\begin{tk}
+	Проверить, что $c=2a+3b$
+\end{tk}
+
+Здесь мы видим, что $c$ можно представить в виде линейной комбинации векторов (см. определение \ref{df1}) $a$ и $b$ с коэффициентам $2$ и $3$.
+
+Рассмотрим векторы
+
+\begin{gather}\label{eq3}
+	e_1=
+	\begin{pmatrix}
+		1
+		\\
+		0
+		\\
+		0
+	\end{pmatrix}
+	\
+	e_2=
+\begin{pmatrix}
+	0
+	\\
+	1
+	\\
+	0
+\end{pmatrix}
+	\
+	e_3=
+\begin{pmatrix}
+	0
+	\\
+	0
+	\\
+	1
+\end{pmatrix}
+\end{gather}
+и линейную комбинацию 
+\begin{gather*}
+	u=ae_1+be_2=\begin{pmatrix}
+		a
+		\\
+		b
+		\\
+		0
+	\end{pmatrix}
+\end{gather*}
+очевидно, что каковы бы ни были $a,b\in\mathbb{R}$, всегда $u\not=e_3$. Таким образом, $e_3$ нельзя представить в виде линейной комбинации $e_1$ и $e_2$.
+
+\begin{dfn}
+	Векторы $\overline{a_1},\overline{a_2},\ldots, \overline{a_m}$ называются \textbf{линейно зависимыми}, если среди них есть вектор $\overline{a_i}$, который выражается через остальные 
+	\begin{equation}
+		\overline{a_i}=\alpha_1 \overline{a_1}+\alpha_2 \overline{a_2}+\ldots \alpha_{i-1} \overline{a_{i-1}}+\alpha_{i+1} \overline{a_{i+1}}\ldots+\alpha_m \overline{a_m}
+	\end{equation}
+\end{dfn} 
+
+\begin{dfn}
+	Векторы $\overline{a_1},\overline{a_2},\ldots, \overline{a_m}$ называются \textbf{линейно независимыми}, если они не являются линейно зависимыми.
+\end{dfn}
+
+Таким образом, набор векторов (\ref{eq2}) --- линейно зависимый, а (\ref{eq3}) --- линейно независимый. 
+
+\subsection{Определение базиса}
+
+\begin{dfn}
+	Пусть даны векторы линейно независимые $\overline{a_1},\overline{a_2},\ldots, \overline{a_m}$, если при добавлении любого вектора $b$ эта система становится линейно зависимой, то такой набор называется \textbf{базисом}.
+\end{dfn} 
+
+\begin{ex}
+	Набор векторов $e_1,e_2,e_3$ (\ref{eq3}) является базисом.
+\end{ex}
+
+\begin{ex}
+	Набор векторов $e_1,e_2$ (\ref{eq3}) не является базисом.
+\end{ex}
+
+\begin{thr}
+	Если система векторов $(\overline{a_1},\overline{a_2},\ldots, \overline{a_m})$ является \textbf{базисом} то любой вектор $\overline{b}$ можно представить в линейной комбинации
+	\begin{equation}\label{eq4}
+		\overline{b}=\alpha_1\overline{a_1}+\alpha_2\overline{a_2}+\ldots+ \alpha_m\overline{a_m}
+	\end{equation}
+	числа $\alpha_1,\alpha_2,\ldots,\alpha_m$ --- называются \textbf{координатами} вектора  
+\end{thr}
+
+\begin{nt}
+	Уравнение (\ref{eq4}) можно переписать в матричном виде
+\begin{equation}
+	(\overline{a_1},\overline{a_2},\ldots, \overline{a_m})
+	\begin{pmatrix}
+		\alpha_1
+		\\
+		\alpha_2
+		\\
+		\vdots
+		\\
+		\alpha_m
+	\end{pmatrix}
+\end{equation}
+\end{nt}
+
+\begin{dfn}
+	Числа $\alpha_1,\alpha_2,\ldots,\alpha_m$ из уравнения (\ref{eq4}) --- называются \textbf{координатами} вектора $\overline{b}$ в базисе $(\overline{a_1},\overline{a_2},\ldots, \overline{a_m})$.
+\end{dfn}
+\subsection{Переход к новому базису}
+Пусть в линейном пространстве имеются два базиса $A=(\overline{u_1},\overline{u_2},\ldots, \overline{u_m})$ и $B=(\overline{v_1},\overline{v_2},\ldots, \overline{v_m})$. Пусть для любого $\overline{v_i}$ известны координаты в базисе $A$
+\begin{equation*}
+	\overline{v_i}=(\overline{u_1},\overline{u_2},\ldots, \overline{u_m})
+	\begin{pmatrix}
+		b_{1i}
+		\\
+		b_{2i}
+		\\
+		\vdots
+		\\
+		b_{mi}
+	\end{pmatrix}
+\end{equation*}
+тогда базис $B$ можно выразить через базис $A$
+
+\begin{equation}\label{eq5}
+	(\overline{v_1},\overline{v_2},\ldots, \overline{v_m})=(\overline{u_1},\overline{u_2},\ldots, \overline{u_m})
+	\begin{pmatrix}
+		b_{11} & b_{12} & \ldots & b_{1m}
+		\\
+		b_{21} & b_{22} & \ldots & b_{2m}
+		\\
+		\vdots & \vdots & \ddots & \vdots
+		\\
+		b_{m1} & b_{m2} & \ldots & b_{mm}
+	\end{pmatrix}
+\end{equation}
+
+Далее, введем обозначение
+
+
+\begin{equation*}
+X=	\begin{pmatrix}
+	b_{11} & b_{12} & \ldots & b_{1m}
+	\\
+	b_{21} & b_{22} & \ldots & b_{2m}
+	\\
+	\vdots & \vdots & \ddots & \vdots
+	\\
+	b_{m1} & b_{m2} & \ldots & b_{mm}
+\end{pmatrix}
+\end{equation*}
+
+Тогда уравнение (\ref{eq5}) примет вид
+
+\begin{equation}\label{eq6}
+	(\overline{v_1},\overline{v_2},\ldots, \overline{v_m})
+	=
+	(\overline{u_1},\overline{u_2},\ldots, \overline{u_m})X
+\end{equation}
+
+\begin{dfn}
+	Матрица $X$ из уравнения (\ref{eq6}) называется матрицей перехода от базиса $A$ к базису $B$.
+\end{dfn}
+
+\subsection{Изменение координат при переходе к новому базису}
+
+\begin{thr}
+	Пусть даны базисы
+	$A=(\overline{u_1},\overline{u_2},\ldots, \overline{u_m}),\  B=(\overline{v_1},\overline{v_2},\ldots, \overline{v_m})$, $X$ --- матрица перехода от базиса $A$ к базису $B$ и в базисе $A$ вектор $x$ имеет координаты
+	\begin{equation*}
+		(a_1, a_2\ldots, a_m)
+	\end{equation*}
+	а в базисе $B$
+	\begin{equation*}
+		(b_1, b_2\ldots, b_m)
+	\end{equation*}
+	тогда верно следующее соотношение
+\begin{equation}\label{eq7}
+\begin{pmatrix}
+	b_1
+	\\
+	b_2
+	\\
+	\vdots
+	\\
+	b_m
+\end{pmatrix}
+=
+	X^{-1}
+	\begin{pmatrix}
+		a_1
+		\\
+		a_2
+		\\
+		\vdots
+		\\
+		a_m
+	\end{pmatrix}
+\end{equation}
+\end{thr}
+
+\begin{proof}
+	Для вектора $\overline{x}$ верно соотношение
+
+\begin{equation*}
+	\overline{x}=
+	(\overline{u_1},\overline{u_2},\ldots, \overline{u_m})	
+	\begin{pmatrix}
+		a_1
+		\\
+		a_2
+		\\
+		\vdots
+		\\
+		a_m
+	\end{pmatrix}
+	=
+	(\overline{v_1},\overline{v_2},\ldots, \overline{v_m})	
+	\begin{pmatrix}
+		b_1
+		\\
+		b_2
+		\\
+		\vdots
+		\\
+		b_m
+	\end{pmatrix}
+\end{equation*}
+преобразуем уравнение, заменяя $B$ на произведение базиса $A$ на матрицу перехода $X$
+
+\begin{equation*}
+	(\overline{u_1},\overline{u_2},\ldots, \overline{u_m})	
+	\begin{pmatrix}
+		a_1
+		\\
+		a_2
+		\\
+		\vdots
+		\\
+		a_m
+	\end{pmatrix}
+	=
+	(\overline{u_1},\overline{u_2},\ldots, \overline{u_m})X
+	\begin{pmatrix}
+		b_1
+		\\
+		b_2
+		\\
+		\vdots
+		\\
+		b_m
+	\end{pmatrix}
+\end{equation*}
+поскольку в равенстве слева и справа базисы совпадают, то, следовательно, они умножаются на одну и ту же матрицу
+
+\begin{equation*}
+	\begin{pmatrix}
+		a_1
+		\\
+		a_2
+		\\
+		\vdots
+		\\
+		a_m
+	\end{pmatrix}
+	=X
+	\begin{pmatrix}
+		b_1
+		\\
+		b_2
+		\\
+		\vdots
+		\\
+		b_m
+	\end{pmatrix}
+\end{equation*}
+домножим обе части уравнения слева на матрицу $X^{-1}$ и получим уравнение (\ref{eq7})
+\begin{equation*}
+X^{-1}
+\begin{pmatrix}
+	a_1
+	\\
+	a_2
+	\\
+	\vdots
+	\\
+	a_m
+\end{pmatrix}
+=
+\begin{pmatrix}
+	b_1
+	\\
+	b_2
+	\\
+	\vdots
+	\\
+	b_m
+\end{pmatrix}
+\end{equation*}
+\end{proof}
+
+\begin{tk}
+	Пусть, $\overline{u}=
+	\begin{pmatrix}
+	1\\
+	2
+	\end{pmatrix}\
+	\overline{v}=
+	\begin{pmatrix}
+		2\\
+		1
+	\end{pmatrix}$,
+	и
+	$\overline{a}=
+	\begin{pmatrix}
+		3\\
+		4
+	\end{pmatrix}\
+	\overline{b}=
+	\begin{pmatrix}
+		4\\
+		3
+	\end{pmatrix}$
+	\begin{enumerate}
+		\item
+		Найти матрицу перехода от базиса $A=(\overline{u}, \overline{v})$ к $B=(\overline{a}, \overline{b})$ 
+		\item
+		Пусть вектор $\overline{x}$ имеет координаты $(2,5)$ в базисе $A$, найти его координаты в базисе $B$.
+	\end{enumerate}
+\end{tk}
+
 \end{document}
